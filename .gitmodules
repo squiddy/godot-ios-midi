@@ -1,0 +1,5 @@
+[submodule "src/godot"]
+	path = src/godot
+	url = https://github.com/godotengine/godot
+[submodule "godot"]
+	shallow = true

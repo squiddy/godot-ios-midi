@@ -1,0 +1,17 @@
+[config]
+name="godot_ios_midi"
+binary="godot_ios_midi.a"
+
+initialization="init_my_plugin"
+deinitialization="deinit_my_plugin"
+
+[dependencies]
+linked=[]
+embedded=[]
+system=[]
+
+capabilities=[]
+
+files=[]
+
+linker_flags=["-ObjC"]
