@@ -30,12 +30,6 @@ void MyMIDIReadProc(const MIDIPacketList *packetList, void *readProcRefCon, void
     MIDIPacket *packet = (MIDIPacket *)packetList->packet;
 
     for (int i = 0; i < packetList->numPackets; i++) {
-        printf("MIDI Packet Received: ");
-
-        for (int j = 0; j < packet->length; j++) {
-            printf("%02X ", packet->data[j]);
-        }
-
         Dictionary state;
         state["timestamp"] = packet->timeStamp;
         PackedByteArray midi_data;
@@ -43,8 +37,6 @@ void MyMIDIReadProc(const MIDIPacketList *packetList, void *readProcRefCon, void
         memcpy(midi_data.ptrw(), packet->data, packet->length);
         state["data"] = midi_data;
         instance->call_deferred("emit_signal", "midi_event", state);
-
-        printf("\n");
 
         packet = MIDIPacketNext(packet);
     }
